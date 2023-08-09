@@ -458,12 +458,15 @@ public vip_menu_handler(id, menu, item) {
 ---> VIP Connected Message
 =================================================================================*/
 public client_putinserver(id) {
+	if(is_user_bot(id))
+		return;
+		
 	jumpnum[id] = 0
 	dojump[id] = false
 
 	if(IsPlayerVIP(id)) {
 		static name[32]; get_user_name(id, name, charsmax(name))
-		client_print_color(0, print_team_default, "%L %L", LANG_PLAYER, "VIP_CHAT_PREFIX", LANG_PLAYER, "VIP_CONNECTED")
+		client_print_color(0, print_team_default, "%L %L", LANG_PLAYER, "VIP_CHAT_PREFIX", LANG_PLAYER, "VIP_CONNECTED",name)
 	}
 }
 
